@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE02D1422B6937450021BB7C /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02D1412B6937450021BB7C /* Listing.swift */; };
+		CE02D1452B6938AE0021BB7C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02D1442B6938AE0021BB7C /* Coordinator.swift */; };
+		CE02D1472B6938C20021BB7C /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02D1462B6938C20021BB7C /* MainCoordinator.swift */; };
+		CE02D14A2B6940490021BB7C /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02D1492B6940490021BB7C /* ListingViewController.swift */; };
+		CE02D14D2B6940B10021BB7C /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02D14C2B6940B10021BB7C /* ListViewModel.swift */; };
+		CE02D14F2B6941830021BB7C /* GithubUserContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02D14E2B6941830021BB7C /* GithubUserContentService.swift */; };
+		CE02D1512B6944640021BB7C /* ListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02D1502B6944640021BB7C /* ListingViewModel.swift */; };
+		CE02D1542B695C520021BB7C /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02D1532B695C520021BB7C /* ImageService.swift */; };
 		CE9DA0922B690A4600EB4023 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9DA0912B690A4600EB4023 /* AppDelegate.swift */; };
 		CE9DA0942B690A4600EB4023 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9DA0932B690A4600EB4023 /* SceneDelegate.swift */; };
-		CE9DA0962B690A4600EB4023 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9DA0952B690A4600EB4023 /* ViewController.swift */; };
-		CE9DA0992B690A4600EB4023 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9DA0972B690A4600EB4023 /* Main.storyboard */; };
+		CE9DA0962B690A4600EB4023 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9DA0952B690A4600EB4023 /* ListViewController.swift */; };
 		CE9DA09B2B690A4700EB4023 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9DA09A2B690A4700EB4023 /* Assets.xcassets */; };
 		CE9DA09E2B690A4700EB4023 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9DA09C2B690A4700EB4023 /* LaunchScreen.storyboard */; };
 		CE9DA0A92B690A4700EB4023 /* LBCStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9DA0A82B690A4700EB4023 /* LBCStoreTests.swift */; };
-		CE9DA0B32B690A4700EB4023 /* LBCStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9DA0B22B690A4700EB4023 /* LBCStoreUITests.swift */; };
-		CE9DA0B52B690A4700EB4023 /* LBCStoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9DA0B42B690A4700EB4023 /* LBCStoreUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,19 +41,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE02D1412B6937450021BB7C /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
+		CE02D1442B6938AE0021BB7C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		CE02D1462B6938C20021BB7C /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		CE02D1492B6940490021BB7C /* ListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewController.swift; sourceTree = "<group>"; };
+		CE02D14C2B6940B10021BB7C /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		CE02D14E2B6941830021BB7C /* GithubUserContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserContentService.swift; sourceTree = "<group>"; };
+		CE02D1502B6944640021BB7C /* ListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewModel.swift; sourceTree = "<group>"; };
+		CE02D1532B695C520021BB7C /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		CE9DA08E2B690A4600EB4023 /* LBCStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LBCStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9DA0912B690A4600EB4023 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE9DA0932B690A4600EB4023 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE9DA0952B690A4600EB4023 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CE9DA0982B690A4600EB4023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE9DA0952B690A4600EB4023 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		CE9DA09A2B690A4700EB4023 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE9DA09D2B690A4700EB4023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE9DA09F2B690A4700EB4023 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE9DA0A42B690A4700EB4023 /* LBCStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LBCStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9DA0A82B690A4700EB4023 /* LBCStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCStoreTests.swift; sourceTree = "<group>"; };
 		CE9DA0AE2B690A4700EB4023 /* LBCStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LBCStoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE9DA0B22B690A4700EB4023 /* LBCStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCStoreUITests.swift; sourceTree = "<group>"; };
-		CE9DA0B42B690A4700EB4023 /* LBCStoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCStoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,12 +86,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE02D1432B6937530021BB7C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE02D1412B6937450021BB7C /* Listing.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE02D1482B69397F0021BB7C /* List */ = {
+			isa = PBXGroup;
+			children = (
+				CE9DA0952B690A4600EB4023 /* ListViewController.swift */,
+				CE02D14C2B6940B10021BB7C /* ListViewModel.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		CE02D14B2B6940670021BB7C /* Listing */ = {
+			isa = PBXGroup;
+			children = (
+				CE02D1492B6940490021BB7C /* ListingViewController.swift */,
+				CE02D1502B6944640021BB7C /* ListingViewModel.swift */,
+			);
+			path = Listing;
+			sourceTree = "<group>";
+		};
+		CE02D1522B695C470021BB7C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				CE02D14E2B6941830021BB7C /* GithubUserContentService.swift */,
+				CE02D1532B695C520021BB7C /* ImageService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		CE9DA0852B690A4600EB4023 = {
 			isa = PBXGroup;
 			children = (
 				CE9DA0902B690A4600EB4023 /* LBCStore */,
 				CE9DA0A72B690A4700EB4023 /* LBCStoreTests */,
-				CE9DA0B12B690A4700EB4023 /* LBCStoreUITests */,
 				CE9DA08F2B690A4600EB4023 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,8 +145,12 @@
 			children = (
 				CE9DA0912B690A4600EB4023 /* AppDelegate.swift */,
 				CE9DA0932B690A4600EB4023 /* SceneDelegate.swift */,
-				CE9DA0952B690A4600EB4023 /* ViewController.swift */,
-				CE9DA0972B690A4600EB4023 /* Main.storyboard */,
+				CE02D1442B6938AE0021BB7C /* Coordinator.swift */,
+				CE02D1462B6938C20021BB7C /* MainCoordinator.swift */,
+				CE02D1522B695C470021BB7C /* Networking */,
+				CE02D1482B69397F0021BB7C /* List */,
+				CE02D14B2B6940670021BB7C /* Listing */,
+				CE02D1432B6937530021BB7C /* Model */,
 				CE9DA09A2B690A4700EB4023 /* Assets.xcassets */,
 				CE9DA09C2B690A4700EB4023 /* LaunchScreen.storyboard */,
 				CE9DA09F2B690A4700EB4023 /* Info.plist */,
@@ -116,15 +164,6 @@
 				CE9DA0A82B690A4700EB4023 /* LBCStoreTests.swift */,
 			);
 			path = LBCStoreTests;
-			sourceTree = "<group>";
-		};
-		CE9DA0B12B690A4700EB4023 /* LBCStoreUITests */ = {
-			isa = PBXGroup;
-			children = (
-				CE9DA0B22B690A4700EB4023 /* LBCStoreUITests.swift */,
-				CE9DA0B42B690A4700EB4023 /* LBCStoreUITestsLaunchTests.swift */,
-			);
-			path = LBCStoreUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +272,6 @@
 			files = (
 				CE9DA09E2B690A4700EB4023 /* LaunchScreen.storyboard in Resources */,
 				CE9DA09B2B690A4700EB4023 /* Assets.xcassets in Resources */,
-				CE9DA0992B690A4600EB4023 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,8 +296,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE9DA0962B690A4600EB4023 /* ViewController.swift in Sources */,
+				CE9DA0962B690A4600EB4023 /* ListViewController.swift in Sources */,
+				CE02D1472B6938C20021BB7C /* MainCoordinator.swift in Sources */,
 				CE9DA0922B690A4600EB4023 /* AppDelegate.swift in Sources */,
+				CE02D1452B6938AE0021BB7C /* Coordinator.swift in Sources */,
+				CE02D14F2B6941830021BB7C /* GithubUserContentService.swift in Sources */,
+				CE02D14A2B6940490021BB7C /* ListingViewController.swift in Sources */,
+				CE02D1422B6937450021BB7C /* Listing.swift in Sources */,
+				CE02D1512B6944640021BB7C /* ListingViewModel.swift in Sources */,
+				CE02D1542B695C520021BB7C /* ImageService.swift in Sources */,
+				CE02D14D2B6940B10021BB7C /* ListViewModel.swift in Sources */,
 				CE9DA0942B690A4600EB4023 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,8 +322,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE9DA0B52B690A4700EB4023 /* LBCStoreUITestsLaunchTests.swift in Sources */,
-				CE9DA0B32B690A4700EB4023 /* LBCStoreUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +341,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CE9DA0972B690A4600EB4023 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE9DA0982B690A4600EB4023 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CE9DA09C2B690A4700EB4023 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -368,7 +404,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -425,7 +461,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -447,9 +483,11 @@
 				INFOPLIST_FILE = LBCStore/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,6 +495,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.volhan.LBCStore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -475,9 +517,11 @@
 				INFOPLIST_FILE = LBCStore/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -485,6 +529,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.volhan.LBCStore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -500,10 +548,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 296WQ2YFS9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.volhan.LBCStoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -520,10 +572,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 296WQ2YFS9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.volhan.LBCStoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -539,9 +595,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 296WQ2YFS9;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.volhan.LBCStoreUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -557,9 +618,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 296WQ2YFS9;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.volhan.LBCStoreUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
