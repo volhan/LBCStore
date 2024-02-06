@@ -61,7 +61,7 @@ class ListingViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = .systemRed
-        label.text = "Urgent"
+        label.text = Strings.Listing.urgent
         return label
     }()
     
@@ -86,6 +86,9 @@ class ListingViewController: UIViewController {
     // MARK: - Setup UI
     private func setupUI() {
         view.backgroundColor = .white
+        
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
@@ -112,9 +115,9 @@ class ListingViewController: UIViewController {
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
             
             titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
@@ -123,15 +126,17 @@ class ListingViewController: UIViewController {
             
             priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            priceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            priceLabel.bottomAnchor.constraint(lessThanOrEqualTo: descriptionLabel.topAnchor, constant: -10),
+            
+            urgentLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            urgentLabel.leadingAnchor.constraint(equalTo: priceLabel.trailingAnchor, constant: 10),
+            urgentLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -10),
+            urgentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             
             descriptionLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 10),
             descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            
-            urgentLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
-            urgentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            urgentLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -10)
+            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
     }
     
@@ -143,26 +148,14 @@ class ListingViewController: UIViewController {
         
         if let imageUrl = viewModel.imageUrl {
             ImageLoader.loadImage(from: imageUrl)
-                .sink(receiveCompletion: { [weak self] completion in
+                .sink(receiveCompletion: { completion in
                     if case let .failure(error) = completion {
-                        self?.handleImageLoadingError(error)
+                        Logger.logError(error.localizedDescription)
                     }
                 }, receiveValue: { [weak self] image in
                     self?.imageView.image = image
                 })
                 .store(in: &cancellables)
-        }
-    }
-    
-    private func handleImageLoadingError(_ error: ImageLoadingError) {
-        // Handle the error, e.g., showing an alert or a placeholder image
-        switch error {
-        case .invalidImageData:
-            // Handle invalid image data scenario
-            break
-        case .networkError(let networkError):
-            // Handle network error scenario
-            break
         }
     }
 }

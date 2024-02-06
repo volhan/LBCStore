@@ -9,13 +9,15 @@ import UIKit
 import Combine
 
 class ListViewController: UIViewController {
-    // MARK: - Properties
     private var tableView: UITableView!
     var viewModel: ListViewModel!
     var coordinator: MainCoordinator?
     private var cancellables = Set<AnyCancellable>()
     
-    // MARK: - Initialization
+    private struct Constants {
+        static let rowHeight: CGFloat = 120
+    }
+    
     init(viewModel: ListViewModel, coordinator: MainCoordinator? = nil) {
         self.viewModel = viewModel
         self.coordinator = coordinator
@@ -26,7 +28,6 @@ class ListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -35,7 +36,6 @@ class ListViewController: UIViewController {
         viewModel.loadData()
     }
     
-    // MARK: - Setup UI
     private func setupUI() {
         view.backgroundColor = .white
         tableView = UITableView()
@@ -52,10 +52,11 @@ class ListViewController: UIViewController {
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(ListingTableViewCell.self, forCellReuseIdentifier: ListingTableViewCell.identifier)
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = Constants.rowHeight
     }
     
-    // MARK: - Binding
     private func bindViewModel() {
         viewModel.$items
             .receive(on: DispatchQueue.main)
@@ -64,29 +65,30 @@ class ListViewController: UIViewController {
             }
             .store(in: &cancellables)
     }
-    
-    // MARK: - Navigation
-    private func showDetail(for listing: Listing) {
-        coordinator?.showListingDetailView(listing: listing)
-    }
 }
 
-// MARK: - UITableViewDelegate and UITableViewDataSource
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListingTableViewCell.identifier, for: indexPath) as? ListingTableViewCell else {
+            return UITableViewCell()
+        }
         let listing = viewModel.items[indexPath.row]
-        cell.textLabel?.text = listing.title
-        // Additional cell configuration...
+        let cellViewModel = ListingCellViewModel(listing: listing)
+        cell.configure(with: cellViewModel)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let listing = viewModel.items[indexPath.row]
         showDetail(for: listing)
+    }
+    
+    private func showDetail(for listing: Listing) {
+        coordinator?.showListingDetailView(listing: listing)
     }
 }

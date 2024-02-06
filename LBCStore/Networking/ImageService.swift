@@ -15,20 +15,15 @@ enum ImageLoadingError: Error {
 
 class ImageLoader {
     static func loadImage(from url: URL) -> AnyPublisher<UIImage?, ImageLoadingError> {
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .tryMap { result -> UIImage? in
-                guard let image = UIImage(data: result.data) else {
+        URLSession.shared.dataTaskPublisher(for: url)
+            .map(\.data)
+            .tryMap { data in
+                guard let image = UIImage(data: data) else {
                     throw ImageLoadingError.invalidImageData
                 }
                 return image
             }
-            .mapError { error -> ImageLoadingError in
-                if let urlError = error as? URLError {
-                    return .networkError(urlError)
-                } else {
-                    return .invalidImageData
-                }
-            }
+            .mapError(ImageLoadingError.networkError)
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }

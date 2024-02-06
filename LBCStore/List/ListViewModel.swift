@@ -11,28 +11,33 @@ import Foundation
 class ListViewModel {
     @Published var items: [Listing] = []
     private var categories: [Category] = []
-    private var contentService: NetworkServiceProtocol
+    private var networkService: NetworkServiceProtocol
     private var cancellables = Set<AnyCancellable>()
     
-    init(contentService: NetworkServiceProtocol) {
-        self.contentService = contentService
+    init(networkService: NetworkServiceProtocol) {
+        self.networkService = networkService
     }
     
     func loadData() {
-        contentService.fetchCategories()
-            .flatMap { [weak self] categories -> AnyPublisher<[Listing], Error> in
+        networkService.fetchCategories()
+            .flatMap { [weak self] categories -> AnyPublisher<[Listing], NetworkError> in
                 self?.categories = categories
-                return self?.contentService.fetchListings() ?? Empty().eraseToAnyPublisher()
+                return self?.networkService.fetchListings() ?? Empty().eraseToAnyPublisher()
             }
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure(let error):
-                    print("Error: \(error)")
+                    Logger.logError(error.localizedDescription)
                 case .finished:
                     break
                 }
             }, receiveValue: { [weak self] listings in
-                self?.items = listings.sorted { $0.isUrgent && !$1.isUrgent || $0.creationDate > $1.creationDate }
+                self?.items = listings.sorted {
+                    if $0.isUrgent == $1.isUrgent {
+                        return $0.creationDate > $1.creationDate
+                    }
+                    return $0.isUrgent && !$1.isUrgent
+                }
             })
             .store(in: &cancellables)
     }

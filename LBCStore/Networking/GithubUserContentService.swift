@@ -8,18 +8,7 @@
 import Combine
 import Foundation
 
-protocol NetworkServiceProtocol {
-    func fetchListings() -> AnyPublisher<[Listing], NetworkError>
-    func fetchCategories() -> AnyPublisher<[Category], NetworkError>
-}
-
-enum NetworkError: Error {
-    case urlError
-    case decodingError(Error)
-    case sessionError(Error)
-}
-
-enum GithubUserContentEndpoint {
+enum GithubUserNetworkEndpoint {
     case listings
     case categories
     
@@ -35,7 +24,7 @@ enum GithubUserContentEndpoint {
 }
 
 class GithubUserContentService: NetworkServiceProtocol {
-    private func fetch<T: Decodable>(endpoint: GithubUserContentEndpoint) -> AnyPublisher<T, NetworkError> {
+    private func fetch<T: Decodable>(endpoint: GithubUserNetworkEndpoint) -> AnyPublisher<T, NetworkError> {
         guard let url = endpoint.url else {
             return Fail(error: NetworkError.urlError).eraseToAnyPublisher()
         }

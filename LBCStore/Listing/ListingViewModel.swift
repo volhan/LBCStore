@@ -23,7 +23,7 @@ class ListingViewModel {
     }
     
     var imageUrl: URL? {
-        URL(string: listing.imagesUrl.thumb)
+        URL(string: listing.imagesUrl.thumb ?? listing.imagesUrl.small ?? "")
     }
     
     var isUrgent: Bool {
