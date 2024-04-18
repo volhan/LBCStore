@@ -114,7 +114,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         let listing = viewModel.items[indexPath.row]
-        let cellViewModel = ListingCellViewModel(listing: listing)
+        let cellViewModel = ListingCellViewModel(listing: listing, categories: viewModel.categories)
         cell.configure(with: cellViewModel)
         return cell
     }

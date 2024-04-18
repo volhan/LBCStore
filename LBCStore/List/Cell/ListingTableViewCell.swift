@@ -14,6 +14,7 @@ final class ListingTableViewCell: UITableViewCell {
     private let itemImageView = UIImageView()
     private let titleLabel = UILabel()
     private let dateLabel = UILabel()
+    private let categoryLabel = UILabel()
     private let priceLabel = UILabel()
     private let urgentLabel = UILabel()
     
@@ -39,6 +40,7 @@ final class ListingTableViewCell: UITableViewCell {
         itemImageView.image = nil
         titleLabel.text = nil
         dateLabel.text = nil
+        categoryLabel.text = nil
         priceLabel.text = nil
         urgentLabel.isHidden = true
         cancellables.forEach { $0.cancel() }
@@ -52,12 +54,14 @@ final class ListingTableViewCell: UITableViewCell {
         itemImageView.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        categoryLabel.translatesAutoresizingMaskIntoConstraints = false
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
         urgentLabel.translatesAutoresizingMaskIntoConstraints = false
         
         contentView.addSubview(itemImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(dateLabel)
+        contentView.addSubview(categoryLabel)
         contentView.addSubview(priceLabel)
         contentView.addSubview(urgentLabel)
         
@@ -79,10 +83,14 @@ final class ListingTableViewCell: UITableViewCell {
             dateLabel.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: LayoutConstants.padding),
             dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: LayoutConstants.padding),
             
+            categoryLabel.leadingAnchor.constraint(greaterThanOrEqualTo: dateLabel.trailingAnchor, constant: LayoutConstants.padding),
+            categoryLabel.topAnchor.constraint(equalTo: dateLabel.topAnchor),
+            categoryLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -LayoutConstants.padding),
+            
             priceLabel.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: LayoutConstants.padding),
             priceLabel.topAnchor.constraint(lessThanOrEqualTo: dateLabel.bottomAnchor, constant: LayoutConstants.padding),
             
-            urgentLabel.leadingAnchor.constraint(equalTo: priceLabel.trailingAnchor, constant: LayoutConstants.padding),
+            urgentLabel.leadingAnchor.constraint(greaterThanOrEqualTo: priceLabel.trailingAnchor, constant: LayoutConstants.padding),
             urgentLabel.topAnchor.constraint(equalTo: priceLabel.topAnchor),
             urgentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -LayoutConstants.padding)
         ])
@@ -91,6 +99,7 @@ final class ListingTableViewCell: UITableViewCell {
     func configure(with viewModel: ListingCellViewModel) {
         titleLabel.text = viewModel.title
         dateLabel.text = viewModel.date
+        categoryLabel.text = viewModel.category
         priceLabel.text = viewModel.price
         urgentLabel.text = Strings.Listing.urgent
         urgentLabel.isHidden = !viewModel.isUrgent

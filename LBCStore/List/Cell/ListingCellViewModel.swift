@@ -11,14 +11,16 @@ final class ListingCellViewModel {
     let title: String
     let imageUrl: URL?
     let date: String?
+    let category: String
     let price: String
     let isUrgent: Bool
     
-    init(listing: Listing) {
+    init(listing: Listing, categories: [ListingCategory]) {
         self.title = listing.title
         self.price = String(format: "%.0f €", listing.price)
         self.isUrgent = listing.isUrgent
         self.imageUrl = URL(string: listing.imagesUrl.small ?? listing.imagesUrl.thumb ?? "")
+        self.category = categories.first(where: { $0.id == listing.categoryId })?.name ?? ""
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
