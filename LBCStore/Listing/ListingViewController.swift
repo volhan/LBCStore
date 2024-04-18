@@ -56,6 +56,22 @@ final class ListingViewController: UIViewController {
         return label
     }()
     
+    private lazy var dateLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: LayoutConstants.fontSizeSubtitle)
+        label.textColor = .darkGray
+        return label
+    }()
+    
+    private lazy var categoryLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: LayoutConstants.fontSizeSubtitle)
+        label.textColor = .darkGray
+        return label
+    }()
+    
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -106,6 +122,8 @@ final class ListingViewController: UIViewController {
         contentView.addSubview(imageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(priceLabel)
+        contentView.addSubview(dateLabel)
+        contentView.addSubview(categoryLabel)
         contentView.addSubview(descriptionLabel)
         contentView.addSubview(urgentLabel)
     }
@@ -138,10 +156,17 @@ final class ListingViewController: UIViewController {
             
             urgentLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: LayoutConstants.padding),
             urgentLabel.leadingAnchor.constraint(equalTo: priceLabel.trailingAnchor, constant: LayoutConstants.padding),
-            urgentLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -LayoutConstants.padding),
+//            urgentLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -LayoutConstants.padding),
             urgentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -LayoutConstants.padding),
             
-            descriptionLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: LayoutConstants.padding),
+            dateLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: LayoutConstants.padding),
+            dateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutConstants.padding),
+            
+            categoryLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: LayoutConstants.padding),
+//            categoryLabel.leadingAnchor.constraint(equalTo: contentView.centerXAnchor, constant: LayoutConstants.padding / 2),
+            categoryLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -LayoutConstants.padding),
+            
+            descriptionLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: LayoutConstants.padding),
             descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutConstants.padding),
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -LayoutConstants.padding),
             descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -LayoutConstants.padding)
@@ -150,10 +175,11 @@ final class ListingViewController: UIViewController {
     
     private func bindViewModel() {
         titleLabel.text = viewModel.title
-        descriptionLabel.text = viewModel.description
         priceLabel.text = viewModel.price
-        
         urgentLabel.isHidden = !viewModel.isUrgent
+        dateLabel.text = viewModel.date
+        categoryLabel.text = viewModel.category
+        descriptionLabel.text = viewModel.description
         
         if let imageUrl = viewModel.imageUrl {
             ImageLoader.loadImage(from: imageUrl)

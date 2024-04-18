@@ -126,6 +126,6 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     private func showDetail(for listing: Listing) {
-        coordinator.showListingDetailView(listing: listing)
+        coordinator.showListingDetailView(listing: listing, categories: viewModel.categories)
     }
 }

@@ -27,8 +27,8 @@ final class MainCoordinator: ICoordinator {
 }
 
 extension MainCoordinator {
-    func showListingDetailView(listing: Listing) {
-        let viewModel = ListingViewModel(listing: listing)
+    func showListingDetailView(listing: Listing, categories: [ListingCategory]) {
+        let viewModel = ListingViewModel(listing: listing, categories: categories)
         let coordinator = ListingCoordinator(navigationController: navigationController, viewModel: viewModel)
         
         coordinator.parentCoordinator = self
